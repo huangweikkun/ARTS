@@ -60,15 +60,15 @@ public class ValidParentheses {
 ```
 
 
-#Review
+# Review
  [“Better Code Reviews” by Alex Persian](https://medium.com/better-programming/better-code-reviews-190efd53bc10) 这是一篇关于code review的文章，对应reviewer和puller提出了以下几条建议: 
  
-### Puller  
+#### Puller  
   1. 提交尽可能小的修改
   2. 规范提交的格式，让reviewer可以只关注关键的修改部分
   3. 提交尽可能详细的描述对于此次的修改
   
-### Reviewer
+#### Reviewer
   1. 及时的review，这个建议比较难做到，因为reviewer对于
   2. 缺失上下文时要求puller提供
   3. 在一个高度的层面中开始
