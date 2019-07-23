@@ -10,6 +10,7 @@ Open brackets must be closed in the correct order.
 下面是这道题的Java的一个解法：
 
 ```java
+
 package com.jacken.practice.leetcode;
 
 import java.util.HashMap;
@@ -60,7 +61,20 @@ public class ValidParentheses {
 
 
 #Review
-
+ [“Better Code Reviews” by Alex Persian](https://medium.com/better-programming/better-code-reviews-190efd53bc10) 这是一篇关于code review的文章，对应reviewer和puller提出了以下几条建议: 
+ 
+### Puller  
+  1. 提交尽可能小的修改
+  2. 规范提交的格式，让reviewer可以只关注关键的修改部分
+  3. 提交尽可能详细的描述对于此次的修改
+  
+### Reviewer
+  1. 及时的review，这个建议比较难做到，因为reviewer对于
+  2. 缺失上下文时要求puller提供
+  3. 在一个高度的层面中开始
+  4. 不同意某个代码写法时提供一个example
+  5. 不要纠结在一些小的问题中
+  6. 富有同情心
 
 #Tip
   
@@ -74,4 +88,4 @@ public class ValidParentheses {
   ```
   
 #Share
-  分享陈皓的关于登月相关的文章：https://coolshell.cn/articles/19612.html，读完后感觉现在人写程序对于程序的健壮性似乎要求的太低了，看看登月的程序在写好后两天就上生产，精确控制执行发射去到月球，并且当时的电脑在内存中使用绕线进行编程，竟然能完成如此伟大的工程，真是让人感叹那代人的工匠精神的对于技术的一丝不苟的投入。
+  分享陈皓的关于登月相关的文章：[50年前登月程序和程序员有多硬核](https://coolshell.cn/articles/19612.html)，读完后感觉现在人写程序对于程序的健壮性似乎要求的太低了，看看登月的程序在写好后两天就上生产，精确控制执行发射去到月球，并且当时的电脑在内存中使用绕线进行编程，竟然能完成如此伟大的工程，真是让人感叹那代人的工匠精神的对于技术的一丝不苟的投入。
