@@ -113,7 +113,7 @@ class TreeNode {
      最后作者认为软件开发的最终目标是delivering working software that achieves its purpose（提供能满足需求的工作软件）
  
 
-# Tip
+# Tips
   
   本周分享关于写单元测试的一些关注点和技巧
   
