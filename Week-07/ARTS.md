@@ -46,7 +46,7 @@ Given a non-empty array of integers, every element appears twice except for one.
 
 # Review  
 
-  ## Effective Java Item 10
+  ### Effective Java Item 10
   
   覆盖equals方法时需要遵守以下的规则：
   1. 自反性：a.equals(a)返回true
@@ -79,11 +79,11 @@ Given a non-empty array of integers, every element appears twice except for one.
   
   ```
   
-  ## Effective Java Item 11
+  ### Effective Java Item 11
   
   覆盖equals时总是覆盖hashcode方法
   
-  ## Effective Java Item 12
+  ### Effective Java Item 12
   
   总是覆盖toString方法
   
