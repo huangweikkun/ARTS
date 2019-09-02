@@ -47,6 +47,7 @@ Given a non-empty array of integers, every element appears twice except for one.
 # Review  
 
   Effective Java Item 10
+  
   覆盖equals方法时需要遵守以下的规则：
   1. 自反性：a.equals(a)返回true
   2. 对称性：x.equals(y)=y.equals(x)
@@ -79,10 +80,13 @@ Given a non-empty array of integers, every element appears twice except for one.
   ```
   
   Effective Java Item 11
+  
   覆盖equals时总是覆盖hashcode方法
   
   Effective Java Item 12
+  
   总是覆盖toString方法
+  
   因为toString方法要求是简洁可读的，总是在打印对象的信息时会调用，希望从中可以获取到对象的运行信息，所以覆盖toString可以帮助我们在debug时，获取详细的游泳的对象信息。
  
 
