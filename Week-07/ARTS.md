@@ -1,41 +1,89 @@
 # Algorithm(LeetCode 136：Single Number)
+
 Given a non-empty array of integers, every element appears twice except for one. Find that single one.
 
-解析：从一个数组中解析出其中相加最大的一个子数组，暴力的方法是把数组中所有的组合都算出来，然后取其中最大的一个便可，这种方法的时间复杂度为O(n^2)，然而有一种方法可以让我们在O(n)的时间复杂度内得到和最大的一个子数组，遍历我们的数组，然后把当前最大的和加上
-当前的遍历元素，看是否当前累加的和比当前遍历的元素大，是的话当前的最大和为累加和，否则的话就为当前的遍历元素。
+解析：找出一个数组只出现过一次的数字，这个可以遍历数组中的数据，然后使用Set来存储数组中的数据，当数据在Set中存在时就把数据从Set中移除，否则就存储到Set中，最后Set中只会保存一个元素，就是数组中只出现一次的元素。这是其中一种常规
+的实现思路，空间复杂度为O(n)，然而却有一种实现思路是可以使得时间复杂度和空间复杂度都为O(n)，那就是使用异或运算，异或运算可以使得两个相等的数运算后结果为0，这样子当所有的结果遍历一遍运算后，得到最终的结果就是出现过一次的数字。
 
   ```java
-
+  
+  import java.util.HashSet;
+  import java.util.Set;
+  
   /**
    * @author jacken
-   * @date 2019/08/20
+   * @date 2019/08/27
    */
-  public class MaximumSubarray {
-    
-    public static int maxSubArray(int[] nums) {
-        int maxSoFar = nums[0], maxEndingHere = nums[0];
-        for (int i = 1; i < nums.length; ++i) {
-          maxEndingHere = Math.max(maxEndingHere + nums[i], nums[i]);
-          maxSoFar = Math.max(maxSoFar, maxEndingHere);
+  public class SingleNumber {
+  
+    public int singleNumber2(int[] nums) {
+      Set<Integer> set = new HashSet<>();
+      for (int num : nums) {
+        if (set.contains(num)) {
+          set.remove(num);
+          continue;
         }
-        return maxSoFar;
+  
+        set.add(num);
       }
+  
+      return set.toArray(new Integer[0])[0];
+    }
+  
+    public int singleNumber(int[] nums) {
+      int result = 0;
+      for (int i = 0; i < nums.length; i++) {
+        result ^= nums[i];
+      }
+  
+      return result;
+    }
+  
   }
+
 
   ```
 
 # Review  
-  Effective Java Item 8
-  避免使用finalizers和cleaners，理由如下：
-  1. 无法保证finalizer和cleaner是一定会被执行，而且也不知道何时会被执行，对于一些或许有时序性要求的程序来说显然是会有问题的。
-  2. 执行期间一个未被捕获的异常会被忽略
-  3. 会有严重的性能问题
-  4. 会有一系列安全性问题
+
+  Effective Java Item 10
+  覆盖equals方法时需要遵守以下的规则：
+  1. 自反性：a.equals(a)返回true
+  2. 对称性：x.equals(y)=y.equals(x)
+  3. 传递性：x.equals(y), y.equals(z) => x.equals(z)
+  4. 一致性：x.equals(y)在变量不变的情况下永远返回一样的结果
+  5. x.equals(null)必须返回false
   
+  下面是一个比较标准的覆盖equals的写法：
+  ```java
   
-  Effective Java Item 9
-  使用try-with-resources而不是try-finally,因为使用try-finally有可能在try块和finally同时报错而finally会有异常堆栈打出来，而try中的异常没有信息，将无法进行追踪而我们更多的是希望看到try中的异常。而使用try-with-resource
-  模块将可以看到第一个调用异常，而接下来的异常将会被压制，可以通过Throwable的getSuppressed方法拿到被压制的异常。try-with-resource块中的对象资源需要实现AutoCloseable接口
+  public class SingleNumber {
+  
+    private int number;
+  
+     @Override
+    public boolean equals(Object obj) {
+      if (obj == this) {
+        return true;
+      }
+  
+      if (!(obj instanceof SingleNumber)) {
+        return false;
+      }
+  
+      SingleNumber singleNumber = (SingleNumber)obj;
+      return singleNumber.number == this.number;
+    }
+  }
+  
+  ```
+  
+  Effective Java Item 11
+  覆盖equals时总是覆盖hashcode方法
+  
+  Effective Java Item 12
+  总是覆盖toString方法
+  因为toString方法要求是简洁可读的，总是在打印对象的信息时会调用，希望从中可以获取到对象的运行信息，所以覆盖toString可以帮助我们在debug时，获取详细的游泳的对象信息。
  
 
 # Tips
@@ -53,5 +101,7 @@ Given a non-empty array of integers, every element appears twice except for one.
   ![截图](./20190826-232144.png)
   
 # Share
+  
+  
   
   
