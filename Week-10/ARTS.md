@@ -1,94 +1,10 @@
 # Algorithm
 
-## LeetCode 104. Maximum Depth of Binary Tree
+## LeetCode 226. Invert Binary Tree
 
-Given a binary tree, find its maximum depth.
+Given a binary tree, invert the binary tree;
 
-The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
-
-
-解析：求解一个二叉树的最大深度，此题可通过递归思路进行解题，递归条件为：一个节点的深度等于左右子节点的较大深度加1，停止条件为：一个节点为叶子节点时深度为1；
-
-  ```java
-  
-  /**
-   * @author jacken
-   * @date 2019/09/28
-   */
-  public class MaximumDepthOfBinaryTree {
-  
-  
-    public int maxDepth(TreeNode treeNode) {
-  
-      if (treeNode == null) {
-        return 0;
-      }
-  
-      int leftDepth = maxDepth(treeNode.left);
-      int rightDepth = maxDepth(treeNode.right);
-  
-      return leftDepth > rightDepth ? leftDepth + 1 : rightDepth + 1;
-    }
-  }
-
-  ```
-  
-## LeetCode 70. Climbing Stairs
-
-You are climbing a stair case. It takes n steps to reach to the top.
-
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
-
-解析：这是一个典型的递归问题，也是一个斐波那契数列，递归条件为：当前所在楼梯的的攀爬方案等于上一次攀爬两个阶梯和一个阶梯的方案数量，终止条件为：当楼梯数为1时方案数量为1，当楼梯数为2时方案数量为2。
-
-```java
-
-  /**
-   * @author jacken
-   * @date 2019/09/28
-   */
-  public class ClimbStairs {
-  
-  
-    private Map<Integer, Integer> solutionMap = new HashMap<>();
-  
-    public int climbStairs(int n) {
-      if (n == 2) {
-        return 2;
-      }
-  
-      if (n == 1) {
-        return 1;
-      }
-  
-      if (solutionMap.get(n) != null) {
-        return solutionMap.get(n);
-      }
-  
-      int solution = climbStairs(n - 1) + climbStairs(n - 2);
-      solutionMap.put(n, solution);
-      return solution;
-    }
-    
-    public int climbStairs2(int n) {
-      if (n == 1) {
-        return 1;
-      }
-  
-      int first = 1;
-      int second = 2;
-  
-      for (int i = 3; i <= n; i++) {
-        int third = first + second;
-        first = second;
-        second = third;
-      }
-  
-      return second;
-    }
-  }
-
-```
+解析：这是一个二叉树，需要对于二叉树进行倒置。
 
 # Review  
   
@@ -103,7 +19,7 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
  
 
 # Tips
-  
+ git跳过暂存直接提交命令：git commit -a 
   
   
   
