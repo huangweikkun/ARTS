@@ -54,8 +54,8 @@ public class DeleteDuplicates {
  3. docker image ls 查看相关镜像的信息
  4. docker run -d ${containerId} ${command} 在后台启动容器在容器内执行对应的指令
  5. docker stop 停止容器
- 5. docker ps 查看正在执行中的容器
- 5. docker exec -it ${containerId} /bin/bash 连接到某个容器的内部
+ 6. docker ps 查看正在执行中的容器
+ 7. docker exec -it ${containerId} /bin/bash 连接到某个容器的内部
  
   
   
